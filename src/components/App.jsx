@@ -1,15 +1,14 @@
 import React from 'react';
-import FlatList from './FlatList.jsx';
-import flats from '../../data/flat.js'
+import FlatList from './FlatList';
+import flats from '../../data/flat';
+import GoogleMapReact from './GoogleMapReact';
 
 const App = () => {
   return (
     <>
-      <div className="left-side bg-primary h-100 flex-grow-1">
+      <div>
         <FlatList flats={flats} />
-      </div>
-      <div className="right-side bg-secondary h-100 flex-grow-1">
-        Right Side
+        <GoogleMapReact />
       </div>
     </>
   );

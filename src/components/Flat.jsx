@@ -12,13 +12,12 @@ const Flat = (props) => {
   return (
     <div className="card" style={style}>
       <div className="card-category">
-        {priceCurrency}
-        {price}
+        {priceCurrency} {price}
       </div>
       <div className="card-description">
         <h2>{name}</h2>
       </div>
-      <a className="card-link" href={imageUrl}> More </a>
+      <a className="card-link" href="#"></a>
     </div>
   );
 };

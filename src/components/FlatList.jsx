@@ -1,12 +1,14 @@
 import React from 'react';
-import Flat from './Flat.jsx'
+import Flat from './Flat';
 
 const FlatList = ({ flats }) => {
   return (
     <>
-      {flats.map(flat => <Flat flat={flat} />)}
+      <div className="flat-list">
+        {flats.map(flat => <Flat flat={flat} />)}
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default FlatList;
