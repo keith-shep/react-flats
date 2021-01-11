@@ -1,14 +1,14 @@
 import React from 'react';
 import FlatList from './FlatList';
 import flats from '../../data/flat';
-import GoogleMapReact from './GoogleMapReact';
+import MapBox from './MapBox';
 
 const App = () => {
   return (
     <>
       <div>
         <FlatList flats={flats} />
-        <GoogleMapReact />
+        <MapBox />
       </div>
     </>
   );
