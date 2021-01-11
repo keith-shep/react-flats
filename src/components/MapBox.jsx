@@ -21,13 +21,10 @@ class MapBox extends React.Component {
     });
   }
 
-  
-
   render() {
-    {console.log(mapboxgl);}
     return (
-      <div>
-        <div ref={el => this.mapContainer = el} />
+      <div className="map-container ">
+        <div ref={el => this.mapContainer = el} className="h-100" />
       </div>
     );
   }
