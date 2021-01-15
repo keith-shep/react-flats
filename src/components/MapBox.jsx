@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
+import React from 'react';
+import ReactMapGL from 'react-map-gl';
 
-const MapBox = () => {
-  const [lng, setLng] = useState(5);
-  const [lat, setLat] = useState(34);
-  const [zoom, setZoom] = useState(2);
-
-  const buildMap = () => {
-    mapboxgl.accessToken = process.env.MAXBOX_API_KEY;
-    const map = new mapboxgl.Map({
-      container: 'mapbox-container',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [34, 75],
-      zoom: 9,
-    });
-  };
-
-  useEffect(() => {
-    buildMap();
-  }, []);
-
+const Map = (props) => {
   return (
     <div className="map-container">
-      <div id="mapbox-container" />
+      <ReactMapGL
+        latitude={props.activeFlat.lat}
+        longitude={props.activeFlat.lng}
+        zoom={10}
+        width="100%"
+        height="100%"
+        // onViewportChange={(viewport) => setViewport(viewport)}
+        mapboxApiAccessToken=""
+      />
     </div>
   );
 };
 
-export default MapBox;
+export default Map;
