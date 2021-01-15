@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React from 'react';
 import mapboxgl from 'mapbox-gl';
 
 class MapBox extends React.Component {
@@ -10,14 +10,21 @@ class MapBox extends React.Component {
       zoom: 2
     };
   }
-  
+
   componentDidMount() {
     mapboxgl.accessToken = process.env.MAXBOX_API_KEY;
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom
+      zoom: this.state.zoom,
+    });
+    map.on('move', () => {
+      this.setState({
+        lng: map.getCenter().lng.toFixed(4),
+        lat: map.getCenter().lat.toFixed(4),
+        zoom: map.getZoom().toFixed(2)
+      });
     });
   }
 
